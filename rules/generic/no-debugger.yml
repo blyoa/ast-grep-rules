@@ -1,0 +1,15 @@
+id: no-debugger
+language: tsx
+message: "Remove `debugger` statements."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: debugger
+fix: ""
+note: |
+  `debugger` pauses execution and should never reach production.
+
+  Bad:  function step() { debugger; doWork(); }
+  Good: function step() { doWork(); }

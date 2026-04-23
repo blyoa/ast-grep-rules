@@ -1,0 +1,8 @@
+id: no-debugger
+valid:
+  - "function step() { doWork(); }"
+  - "const name = 'debugger';"
+  - "if (isDebug) { console.log('here'); }"
+invalid:
+  - "function step() { debugger; doWork(); }"
+  - "debugger;"

@@ -1,0 +1,16 @@
+id: no-debugger
+snapshots:
+  debugger;:
+    fixed: ;
+    labels:
+    - source: debugger
+      style: primary
+      start: 0
+      end: 8
+  function step() { debugger; doWork(); }:
+    fixed: function step() { ; doWork(); }
+    labels:
+    - source: debugger
+      style: primary
+      start: 18
+      end: 26
