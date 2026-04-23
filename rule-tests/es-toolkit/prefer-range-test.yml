@@ -1,0 +1,9 @@
+id: prefer-range
+valid:
+  - "range(5)"
+  - "range(0, 10)"
+  - "Array.from(new Set([1, 2, 3]))"
+  - "Array.from(document.querySelectorAll('.item'))"
+invalid:
+  - "Array.from({ length: 5 }, (v, k) => k)"
+  - "Array.from({ length: n }, (_, i) => i)"

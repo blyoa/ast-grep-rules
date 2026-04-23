@@ -1,0 +1,14 @@
+id: prefer-range
+language: tsx
+message: "Use `range()` instead of `Array.from({ length: ... })` to generate number sequences."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: "Array.from({ length: $LEN }, $$$)"
+note: |
+  Replacing `Array.from({ length: ... })` with `range()` make the code concise.
+
+  Bad:  Array.from({ length: 5 }, (_, i) => i)
+  Good: range(5)

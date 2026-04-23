@@ -1,0 +1,14 @@
+id: prefer-range
+snapshots:
+  'Array.from({ length: 5 }, (v, k) => k)':
+    labels:
+    - source: 'Array.from({ length: 5 }, (v, k) => k)'
+      style: primary
+      start: 0
+      end: 38
+  'Array.from({ length: n }, (_, i) => i)':
+    labels:
+    - source: 'Array.from({ length: n }, (_, i) => i)'
+      style: primary
+      start: 0
+      end: 38
