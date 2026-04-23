@@ -1,0 +1,20 @@
+id: no-use-effect
+snapshots:
+  React.useEffect(() => { document.title = title }, [title]):
+    labels:
+    - source: React.useEffect(() => { document.title = title }, [title])
+      style: primary
+      start: 0
+      end: 58
+  useEffect(() => { setTotal(a + b) }, [a, b]):
+    labels:
+    - source: useEffect(() => { setTotal(a + b) }, [a, b])
+      style: primary
+      start: 0
+      end: 44
+  useEffect(() => { subscribe(); return () => unsubscribe() }, []):
+    labels:
+    - source: useEffect(() => { subscribe(); return () => unsubscribe() }, [])
+      style: primary
+      start: 0
+      end: 64

@@ -1,0 +1,15 @@
+id: no-use-effect
+language: tsx
+message: "Avoid `useEffect`; derive values from props or state instead."
+severity: error
+files:
+  - "**/*.tsx"
+rule:
+  any:
+    - pattern: useEffect($$$)
+    - pattern: React.useEffect($$$)
+note: |
+  `useEffect` runs after render, causing extra render passes.
+
+  Bad:  useEffect(() => setFullName(first + ' ' + last), [first, last])
+  Good: const fullName = first + ' ' + last

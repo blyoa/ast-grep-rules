@@ -1,0 +1,7 @@
+id: no-use-effect
+valid:
+  - "useCallback(() => handleClick(id), [id])"
+invalid:
+  - "useEffect(() => { setTotal(a + b) }, [a, b])"
+  - "useEffect(() => { subscribe(); return () => unsubscribe() }, [])"
+  - "React.useEffect(() => { document.title = title }, [title])"
