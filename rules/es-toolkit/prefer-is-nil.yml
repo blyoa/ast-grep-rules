@@ -1,0 +1,15 @@
+id: prefer-is-nil
+language: tsx
+message: "Use `isNil()` instead of `!isNotNil()`."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: "!isNotNil($EXPR)"
+fix: "isNil($EXPR)"
+note: |
+  `isNil` is the named negation of `isNotNil`; it is more readable than a double negation.
+
+  Bad:  if (!isNotNil(value)) { ... }
+  Good: if (isNil(value)) { ... }

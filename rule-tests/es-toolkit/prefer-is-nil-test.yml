@@ -1,0 +1,8 @@
+id: prefer-is-nil
+valid:
+  - "if (isNil(value)) { return fallback }"
+  - "const name = isNotNil(user) ? user.name : 'anonymous';"
+  - "assert.isNotNil(result);"
+invalid:
+  - "if (!isNotNil(value)) { return fallback }"
+  - "const items = data.filter(v => !isNotNil(v));"

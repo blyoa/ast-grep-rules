@@ -1,0 +1,16 @@
+id: prefer-is-nil
+snapshots:
+  const items = data.filter(v => !isNotNil(v));:
+    fixed: const items = data.filter(v => isNil(v));
+    labels:
+    - source: '!isNotNil(v)'
+      style: primary
+      start: 31
+      end: 43
+  if (!isNotNil(value)) { return fallback }:
+    fixed: if (isNil(value)) { return fallback }
+    labels:
+    - source: '!isNotNil(value)'
+      style: primary
+      start: 4
+      end: 20
