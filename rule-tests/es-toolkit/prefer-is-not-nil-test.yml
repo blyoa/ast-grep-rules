@@ -1,0 +1,8 @@
+id: prefer-is-not-nil
+valid:
+  - "if (isNotNil(value)) { process(value) }"
+  - "const items = isNil(list) ? [] : list;"
+  - "return isNotNil(result) ? result : fallback;"
+invalid:
+  - "if (!isNil(value)) { process(value) }"
+  - "const filtered = items.filter(v => !isNil(v));"

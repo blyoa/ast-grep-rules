@@ -1,0 +1,16 @@
+id: prefer-is-not-nil
+snapshots:
+  const filtered = items.filter(v => !isNil(v));:
+    fixed: const filtered = items.filter(v => isNotNil(v));
+    labels:
+    - source: '!isNil(v)'
+      style: primary
+      start: 35
+      end: 44
+  if (!isNil(value)) { process(value) }:
+    fixed: if (isNotNil(value)) { process(value) }
+    labels:
+    - source: '!isNil(value)'
+      style: primary
+      start: 4
+      end: 17
