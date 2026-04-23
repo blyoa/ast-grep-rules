@@ -1,0 +1,15 @@
+id: prefer-structured-logger
+language: tsx
+message: "Use a structured logger instead of `console.*` methods."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: console.$METHOD($$$)
+note: |
+  `console.xxx()` lacks structured output (log levels, timestamps, context).
+  Use the structured logger in your project, such as Pino or Winston, instead.
+
+  Bad:  console.log("processing order", orderId)
+  Good: logger.info("processing order", { orderId })

@@ -1,0 +1,17 @@
+id: prefer-structured-logger
+valid:
+  - |
+    logger.info("processing order", { orderId });
+  - |
+    const x = 1;
+invalid:
+  - |
+    console.log("processing order", orderId);
+  - |
+    console.error("failed to fetch", err);
+  - |
+    console.warn("deprecated API usage");
+  - |
+    console.table(data);
+  - |
+    console.dir(obj, { depth: null });
