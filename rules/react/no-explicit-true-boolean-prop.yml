@@ -1,0 +1,19 @@
+id: no-explicit-true-boolean-prop
+language: tsx
+message: "Omit `={true}` on boolean props; the prop name alone suffices."
+severity: error
+files:
+  - "**/*.tsx"
+rule:
+  all:
+    - kind: jsx_attribute
+    - has:
+        kind: jsx_expression
+        has:
+          kind: "true"
+        stopBy: end
+note: |
+  Remove `={true}` from boolean props for simplicity.
+
+  Bad:  <button disabled={true} />
+  Good: <button disabled />

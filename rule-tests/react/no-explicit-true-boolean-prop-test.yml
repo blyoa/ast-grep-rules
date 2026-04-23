@@ -1,0 +1,9 @@
+id: no-explicit-true-boolean-prop
+valid:
+  - "<button disabled />"
+  - "<input required={false} />"
+  - "<details open={isOpen} />"
+  - "<input disabled={isDisabled} />"
+invalid:
+  - "<button disabled={true} />"
+  - "<input required={true} maxLength={100} />"
