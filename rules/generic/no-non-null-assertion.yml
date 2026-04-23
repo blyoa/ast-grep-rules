@@ -1,0 +1,15 @@
+id: no-non-null-assertion
+language: tsx
+message: "Avoid the `!` non-null assertion; handle the null case explicitly."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  kind: non_null_expression
+note: |
+  `!` silences the compiler without any runtime guarantee.
+  If the value is null, you get a confusing TypeError far from the assertion site.
+
+  Bad:  const name = user!.name;
+  Good: const name = user?.name ?? "unknown";

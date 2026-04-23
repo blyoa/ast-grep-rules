@@ -1,0 +1,6 @@
+id: no-non-null-assertion
+valid:
+  - "const name = user?.name ?? 'unknown';"
+  - "if (!user) return; const name = user.name;"
+invalid:
+  - "const name = user!.name;"
