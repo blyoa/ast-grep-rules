@@ -1,0 +1,15 @@
+id: no-console
+valid:
+  - |
+    logger.info("processing order", { orderId });
+invalid:
+  - |
+    console.log("processing order", orderId);
+  - |
+    console.error("failed to fetch", err);
+  - |
+    console.warn("deprecated API usage");
+  - |
+    console.table(data);
+  - |
+    console.dir(obj, { depth: null });

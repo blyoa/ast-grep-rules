@@ -1,0 +1,17 @@
+id: no-console
+language: tsx
+message: "Remove `console` calls or replace with a structured logger."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: console.$METHOD($$$)
+constraints:
+  METHOD:
+    regex: "^(log|warn|error|info|debug|table|dir)$"
+note: |
+  console calls may be debugging artifacts that do not belong in committed code.
+
+  Bad:  console.log("processing order", orderId)
+  Good: (remove the call entirely)
