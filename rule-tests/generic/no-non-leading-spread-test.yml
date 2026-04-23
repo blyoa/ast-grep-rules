@@ -1,0 +1,11 @@
+id: no-non-leading-spread
+valid:
+  - "const x = { ...defaults, timeout: 30 }"
+  - "const x = { ...a, ...b, c: 1 }"
+  - "const x = { a: 1, b: 2 }"
+  - "const x = { ...obj }"
+invalid:
+  - "const config = { timeout: 30, ...defaults }"
+  - "const x = { a: 1, ...b, c: 2 }"
+  - "const x = { a, ...b }"
+  - "const x = { foo() {}, ...rest }"

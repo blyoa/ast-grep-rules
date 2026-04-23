@@ -1,0 +1,58 @@
+id: no-non-leading-spread
+snapshots:
+  'const config = { timeout: 30, ...defaults }':
+    labels:
+    - source: '...defaults'
+      style: primary
+      start: 30
+      end: 41
+    - source: '{ timeout: 30, ...defaults }'
+      style: secondary
+      start: 15
+      end: 43
+    - source: 'timeout: 30'
+      style: secondary
+      start: 17
+      end: 28
+  const x = { a, ...b }:
+    labels:
+    - source: '...b'
+      style: primary
+      start: 15
+      end: 19
+    - source: '{ a, ...b }'
+      style: secondary
+      start: 10
+      end: 21
+    - source: a
+      style: secondary
+      start: 12
+      end: 13
+  'const x = { a: 1, ...b, c: 2 }':
+    labels:
+    - source: '...b'
+      style: primary
+      start: 18
+      end: 22
+    - source: '{ a: 1, ...b, c: 2 }'
+      style: secondary
+      start: 10
+      end: 30
+    - source: 'a: 1'
+      style: secondary
+      start: 12
+      end: 16
+  const x = { foo() {}, ...rest }:
+    labels:
+    - source: '...rest'
+      style: primary
+      start: 22
+      end: 29
+    - source: '{ foo() {}, ...rest }'
+      style: secondary
+      start: 10
+      end: 31
+    - source: foo() {}
+      style: secondary
+      start: 12
+      end: 20

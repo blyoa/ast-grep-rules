@@ -1,0 +1,25 @@
+id: no-non-leading-spread
+language: tsx
+message: "Spread must come first in object literals to prevent accidental property overwrites."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  all:
+    - kind: spread_element
+    - inside:
+        kind: object
+        stopBy: end
+    - follows:
+        any:
+          - kind: pair
+          - kind: shorthand_property_identifier
+          - kind: method_definition
+        stopBy: end
+note: |
+  A spread after explicit properties silently overwrites them
+  if the spread object contains the same keys.
+
+  Bad:  const config = { timeout: 30, ...defaults }
+  Good: const config = { ...defaults, timeout: 30 }
