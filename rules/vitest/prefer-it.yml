@@ -1,0 +1,17 @@
+id: prefer-it
+language: tsx
+message: "Use `it()` for consistent test naming."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  pattern: test($$$)
+fix: it($$$)
+note: |
+  Stick with `it()` everywhere for consistency.
+
+  Bad:  test("adds two numbers", () => { ... })
+  Good: it("adds two numbers", () => { ... })

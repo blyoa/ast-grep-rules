@@ -1,0 +1,16 @@
+id: prefer-it
+snapshots:
+  ? |
+    test("adds two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
+  : fixed: |
+      it($$$);
+    labels:
+    - source: |-
+        test("adds two numbers", () => {
+          expect(add(1, 2)).toBe(3);
+        })
+      style: primary
+      start: 0
+      end: 64

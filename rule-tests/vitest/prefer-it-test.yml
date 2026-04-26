@@ -1,0 +1,15 @@
+id: prefer-it
+valid:
+  - |
+    it("adds two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
+  - |
+    it.only("runs this test alone", () => {
+      expect(true).toBe(true);
+    });
+invalid:
+  - |
+    test("adds two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
