@@ -1,0 +1,21 @@
+id: no-each-tuple-arrays
+language: tsx
+message: "Use objects instead of arrays for `each()` data."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  any:
+    - pattern: test.each([[$$$]], $$$FN)
+    - pattern: test.each([[$$$], $$$REST], $$$FN)
+    - pattern: it.each([[$$$]], $$$FN)
+    - pattern: it.each([[$$$], $$$REST], $$$FN)
+note: |
+  As the number of elements in each array increases, it becomes harder to understand which position corresponds to what intent.
+  Objects allow named properties that are self-documenting.
+
+  Bad:  test.each([[1, "one"], [2, "two"]], (input, expected) => { ... })
+  Good: test.each([{ input: 1, expected: "one" }], ({ input, expected }) => { ... })

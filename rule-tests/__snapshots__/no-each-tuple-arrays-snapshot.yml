@@ -1,0 +1,14 @@
+id: no-each-tuple-arrays
+snapshots:
+  ? |
+    test.each([[1, "one"], [2, "two"]], (input, expected) => {
+      expect(formatNumber(input)).toBe(expected);
+    });
+  : labels:
+    - source: |-
+        test.each([[1, "one"], [2, "two"]], (input, expected) => {
+          expect(formatNumber(input)).toBe(expected);
+        })
+      style: primary
+      start: 0
+      end: 107

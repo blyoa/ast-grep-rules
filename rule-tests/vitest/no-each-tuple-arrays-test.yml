@@ -1,0 +1,24 @@
+id: no-each-tuple-arrays
+valid:
+  - |
+    test.each([
+      { input: 1, expected: "one" },
+      { input: 2, expected: "two" },
+    ])("$input maps to $expected", ({ input, expected }) => {
+      expect(formatNumber(input)).toBe(expected);
+    });
+  - |
+    it.each([
+      { a: true, b: false },
+    ])("a is $a and b is $b", ({ a, b }) => {
+      expect(a).not.toBe(b);
+    });
+  - |
+    test.each([1, 2, 3])("$n", (n) => {
+      expect(n).toBeGreaterThan(0);
+    });
+invalid:
+  - |
+    test.each([[1, "one"], [2, "two"]], (input, expected) => {
+      expect(formatNumber(input)).toBe(expected);
+    });
