@@ -1,0 +1,9 @@
+id: prefer-not-instance-of-assert
+snapshots:
+  assert(!(result instanceof Error));:
+    fixed: assert.notInstanceOf(result, Error);
+    labels:
+    - source: assert(!(result instanceof Error))
+      style: primary
+      start: 0
+      end: 34

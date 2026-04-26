@@ -1,0 +1,18 @@
+id: prefer-not-instance-of-assert
+language: tsx
+message: "Use `assert.notInstanceOf()` instead of `assert(!(x instanceof Type))`."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  pattern: assert(!($EXPR instanceof $TYPE))
+fix: "assert.notInstanceOf($EXPR, $TYPE)"
+note: |
+  `assert.notInstanceOf` produces a descriptive failure message
+  instead of the generic "AssertionError" from bare `assert`.
+
+  Bad:  assert(!(result instanceof Error));
+  Good: assert.notInstanceOf(result, Error);

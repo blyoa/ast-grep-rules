@@ -1,0 +1,7 @@
+id: prefer-not-instance-of-assert
+valid:
+  - "assert.notInstanceOf(result, Error);"
+  - "assert.isDefined(result);"
+  - "assert(!(result instanceof Error) && result !== null);"
+invalid:
+  - "assert(!(result instanceof Error));"
