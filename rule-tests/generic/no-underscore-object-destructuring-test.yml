@@ -1,0 +1,8 @@
+id: no-underscore-object-destructuring
+valid:
+  - "test('returns needed field', () => { const { name } = getConfig(); expect(name).toBe('test'); });"
+  - "it('uses multiple fields', () => { const { host, port } = parseUrl(input); expect(host).toBe('localhost'); });"
+  - "test('renames for clarity', () => { const { data: result } = apiResponse; expect(result).toHaveLength(3); });"
+invalid:
+  - "test('returns needed field', () => { const { _debug, name } = getConfig(); expect(name).toBe('test'); });"
+  - "it('uses port only', () => { const { _host, port } = parseUrl(input); expect(port).toBe(8080); });"

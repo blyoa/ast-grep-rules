@@ -1,0 +1,30 @@
+id: no-underscore-object-destructuring
+snapshots:
+  it('uses port only', () => { const { _host, port } = parseUrl(input); expect(port).toBe(8080); });:
+    labels:
+    - source: '{ _host, port } = parseUrl(input)'
+      style: primary
+      start: 35
+      end: 68
+    - source: _host
+      style: secondary
+      start: 37
+      end: 42
+    - source: '{ _host, port }'
+      style: secondary
+      start: 35
+      end: 50
+  test('returns needed field', () => { const { _debug, name } = getConfig(); expect(name).toBe('test'); });:
+    labels:
+    - source: '{ _debug, name } = getConfig()'
+      style: primary
+      start: 43
+      end: 73
+    - source: _debug
+      style: secondary
+      start: 45
+      end: 51
+    - source: '{ _debug, name }'
+      style: secondary
+      start: 43
+      end: 59

@@ -1,0 +1,20 @@
+id: no-underscore-object-destructuring
+language: tsx
+message: "Remove unused destructured properties instead of prefixing them with underscore."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  kind: variable_declarator
+  has:
+    kind: object_pattern
+    has:
+      kind: shorthand_property_identifier_pattern
+      regex: "^_"
+note: |
+  Renaming a destructured property with an underscore prefix adds noise while still extracting the value.
+  Omit the property entirely if it is not needed.
+
+  Bad:  const { _unused, needed } = getConfig();
+  Good: const { needed } = getConfig();
