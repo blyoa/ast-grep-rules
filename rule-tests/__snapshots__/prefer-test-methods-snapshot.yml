@@ -1,0 +1,27 @@
+id: prefer-test-methods
+snapshots:
+  ? |
+    it.only("runs this test alone", () => {
+      expect(true).toBe(true);
+    });
+  : fixed: |
+      test.only("runs this test alone", () => {
+        expect(true).toBe(true);
+      });
+    labels:
+    - source: |-
+        it.only("runs this test alone", () => {
+          expect(true).toBe(true);
+        })
+      style: primary
+      start: 0
+      end: 69
+  ? |
+    it.skip("skipped test", () => {});
+  : fixed: |
+      test.skip("skipped test", () => {});
+    labels:
+    - source: it.skip("skipped test", () => {})
+      style: primary
+      start: 0
+      end: 33
