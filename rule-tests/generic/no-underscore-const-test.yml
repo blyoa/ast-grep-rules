@@ -1,0 +1,8 @@
+id: no-underscore-const
+valid:
+  - "test('creates user', async () => { const user = await factory.create({ name: 'Alice' }); expect(user.name).toBe('Alice'); });"
+  - "it('returns count', () => { const count = getItems().length; expect(count).toBe(3); });"
+  - "describe('setup', () => { test('initializes service', () => { const service = new Service(); expect(service.isReady()).toBe(true); }); });"
+invalid:
+  - "test('creates user', async () => { const _user = await factory.create({ name: 'Alice' }); });"
+  - "it('triggers event', async () => { const _result = await dispatch(action); });"

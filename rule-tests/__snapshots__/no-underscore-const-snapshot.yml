@@ -1,0 +1,16 @@
+id: no-underscore-const
+snapshots:
+  it('triggers event', async () => { const _result = await dispatch(action); });:
+    fixed: it('triggers event', async () => { await dispatch(action) });
+    labels:
+    - source: const _result = await dispatch(action);
+      style: primary
+      start: 35
+      end: 74
+  'test(''creates user'', async () => { const _user = await factory.create({ name: ''Alice'' }); });':
+    fixed: 'test(''creates user'', async () => { await factory.create({ name: ''Alice'' }) });'
+    labels:
+    - source: 'const _user = await factory.create({ name: ''Alice'' });'
+      style: primary
+      start: 35
+      end: 89

@@ -1,0 +1,19 @@
+id: no-underscore-const
+language: tsx
+message: "Remove unused variable assignments entirely instead of prefixing with underscore."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: const $NAME = $EXPR
+constraints:
+  NAME:
+    regex: "^_"
+fix: $EXPR
+note: |
+  Prefixing unused variables with an underscore masks dead code.
+  Remove the unused variable entirely for simplicity.
+
+  Bad:  const _unused = await factory.create({ name: "test" });
+  Good: await factory.create({ name: "test" })
