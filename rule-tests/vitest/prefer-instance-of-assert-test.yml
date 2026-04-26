@@ -1,0 +1,7 @@
+id: prefer-instance-of-assert
+valid:
+  - "assert.instanceOf(result, Response);"
+  - "assert.isDefined(result);"
+  - "assert(result instanceof Response && result.ok);"
+invalid:
+  - "assert(result instanceof Response);"

@@ -1,0 +1,9 @@
+id: prefer-instance-of-assert
+snapshots:
+  assert(result instanceof Response);:
+    fixed: assert.instanceOf(result, Response);
+    labels:
+    - source: assert(result instanceof Response)
+      style: primary
+      start: 0
+      end: 34

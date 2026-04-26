@@ -1,0 +1,18 @@
+id: prefer-instance-of-assert
+language: tsx
+message: "Use `assert.instanceOf()` instead of `assert(x instanceof Type)`."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  pattern: assert($EXPR instanceof $TYPE)
+fix: "assert.instanceOf($EXPR, $TYPE)"
+note: |
+  `assert.instanceOf` produces a descriptive failure message
+  instead of the generic "AssertionError" from bare `assert`.
+
+  Bad:  assert(result instanceof Response);
+  Good: assert.instanceOf(result, Response);
