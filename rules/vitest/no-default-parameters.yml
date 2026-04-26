@@ -1,0 +1,19 @@
+id: no-default-parameters
+language: tsx
+message: "Pass all arguments explicitly in test helper functions instead of using default parameters."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: required_parameter
+  has:
+    regex: "="
+note: |
+  Default parameters in test helpers obscure which value the test depends on.
+  Avoid using default parameters in functions to make test cases more identifiable and deterministic.
+
+  Bad:  function createMockUser(name: string, role = "admin") { ... }
+  Good: function createMockUser(name: string, role: string) { ... }

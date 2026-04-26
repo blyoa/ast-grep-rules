@@ -1,0 +1,15 @@
+id: no-default-parameters
+valid:
+  - |
+    function createMockUser(name: string, role: string) {
+      return { name, role };
+    }
+  - |
+    const buildRequest = (url: string, method: string) => ({ url, method });
+invalid:
+  - |
+    function createMockUser(name: string, role = "admin") {
+      return { name, role };
+    }
+  - |
+    const buildRequest = (url: string, method = "GET") => ({ url, method });
