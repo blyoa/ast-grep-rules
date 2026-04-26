@@ -1,0 +1,18 @@
+id: prefer-test
+snapshots:
+  ? |
+    it("adds two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
+  : fixed: |
+      test("adds two numbers", () => {
+        expect(add(1, 2)).toBe(3);
+      });
+    labels:
+    - source: |-
+        it("adds two numbers", () => {
+          expect(add(1, 2)).toBe(3);
+        })
+      style: primary
+      start: 0
+      end: 62
