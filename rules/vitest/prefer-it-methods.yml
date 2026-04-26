@@ -1,0 +1,20 @@
+id: prefer-it-methods
+language: tsx
+message: "Use `it` instead of `test` for `.only()`, `.skip()`, and `.each()` calls."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  pattern: test.$PROP($$$ARGS)
+fix: it.$PROP($$$ARGS)
+constraints:
+  PROP:
+    regex: "^(only|skip|each)$"
+note: |
+  Use `it` instead of `test` for `.only()`, `.skip()`, and `.each()` calls for consistency.
+
+  Bad:  test.only("runs this test alone", () => { ... })
+  Good: it.only("runs this test alone", () => { ... })

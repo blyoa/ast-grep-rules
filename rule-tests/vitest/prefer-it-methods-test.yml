@@ -1,0 +1,15 @@
+id: prefer-it-methods
+valid:
+  - |
+    it.only("runs this test alone", () => {
+      expect(true).toBe(true);
+    });
+  - |
+    it.skip("skipped test", () => {});
+invalid:
+  - |
+    test.only("runs this test alone", () => {
+      expect(true).toBe(true);
+    });
+  - |
+    test.skip("skipped test", () => {});
