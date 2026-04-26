@@ -1,0 +1,31 @@
+id: no-each-template-literal
+language: tsx
+message: "Use objects with `each()` instead of template literal syntax."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  all:
+    - kind: call_expression
+    - has:
+        kind: template_string
+        stopBy: end
+        field: arguments
+    - has:
+        kind: member_expression
+        regex: "^[^.]+\\.(each|for)$"
+        stopBy: end
+        field: function
+note: |
+  Template literal syntax in `each()` reduces type safety.
+  Use objects for better type safety.
+
+  Bad: 
+    it.each`
+      input | expected
+      ${1}  | ${"one"}
+    `("maps $input to $expected", ({ input, expected }) => { ... })
+  Good: it.each([{ input: 1, expected: "one" }], ({ input, expected }) => { ... })

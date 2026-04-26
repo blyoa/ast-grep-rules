@@ -1,0 +1,24 @@
+id: no-each-template-literal
+snapshots:
+  ? |
+    it.each`input | expected
+    ${1} | ${"one"}`("maps $input to $expected", ({ input, expected }) => {
+      expect(formatNumber(input)).toBe(expected);
+    });
+  : labels:
+    - source: |-
+        it.each`input | expected
+        ${1} | ${"one"}`
+      style: primary
+      start: 0
+      end: 41
+    - source: |-
+        `input | expected
+        ${1} | ${"one"}`
+      style: secondary
+      start: 7
+      end: 41
+    - source: it.each
+      style: secondary
+      start: 0
+      end: 7
