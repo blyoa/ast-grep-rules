@@ -1,0 +1,20 @@
+id: no-underscore-array-destructuring
+language: tsx
+message: "Remove unused destructured elements instead of prefixing them with underscore."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  kind: variable_declarator
+  has:
+    kind: array_pattern
+    has:
+      kind: identifier
+      regex: "^_"
+note: |
+  An underscore-prefixed slot in array destructuring signals an unused value that clutters the code.
+  Omitting the slot keeps the destructuring clean.
+
+  Bad:  const [_unused, second] = getResult();
+  Good: const [, second] = getResult();

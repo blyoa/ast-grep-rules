@@ -1,0 +1,8 @@
+id: no-underscore-array-destructuring
+valid:
+  - "test('returns second element', () => { const [, second] = getResult(); expect(second).toBe('b'); });"
+  - "it('uses first and third', () => { const [first, , third] = getTuple(); expect(first + third).toBe(4); });"
+  - "test('full destructuring', () => { const [name, age] = parseUser(input); expect(name).toBe('Alice'); });"
+invalid:
+  - "test('returns second element', () => { const [_first, second] = getResult(); expect(second).toBe('b'); });"
+  - "it('uses last item', () => { const [_, __, last] = getRange(); expect(last).toBe(3); });"

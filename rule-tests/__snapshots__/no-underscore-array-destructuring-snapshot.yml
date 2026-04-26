@@ -1,0 +1,30 @@
+id: no-underscore-array-destructuring
+snapshots:
+  it('uses last item', () => { const [_, __, last] = getRange(); expect(last).toBe(3); });:
+    labels:
+    - source: '[_, __, last] = getRange()'
+      style: primary
+      start: 35
+      end: 61
+    - source: _
+      style: secondary
+      start: 36
+      end: 37
+    - source: '[_, __, last]'
+      style: secondary
+      start: 35
+      end: 48
+  test('returns second element', () => { const [_first, second] = getResult(); expect(second).toBe('b'); });:
+    labels:
+    - source: '[_first, second] = getResult()'
+      style: primary
+      start: 45
+      end: 75
+    - source: _first
+      style: secondary
+      start: 46
+      end: 52
+    - source: '[_first, second]'
+      style: secondary
+      start: 45
+      end: 61
