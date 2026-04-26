@@ -1,0 +1,9 @@
+id: no-switch-in-test
+valid:
+  - "test('returns a for type a', () => { expect(handler('a')).toBe('result-a'); });"
+  - "it('handles empty input', () => { expect(parse('')).toEqual([]); });"
+  - "describe('parser', () => { test('skips whitespace', () => { expect(parse(' ')).toBeNull(); }); });"
+  - "test('throws on invalid input', () => { expect(() => validate(-1)).toThrow(); });"
+invalid:
+  - "test('dispatches by type', () => { switch (type) { case 'a': expect(result).toBe(1); break; case 'b': expect(result).toBe(2); break; } });"
+  - "it('maps status codes', () => { switch (code) { case 200: expect(msg).toBe('ok'); break; case 404: expect(msg).toBe('not found'); break; default: expect(msg).toBe('unknown'); } });"

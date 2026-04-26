@@ -1,0 +1,14 @@
+id: no-switch-in-test
+snapshots:
+  ? 'it(''maps status codes'', () => { switch (code) { case 200: expect(msg).toBe(''ok''); break; case 404: expect(msg).toBe(''not found''); break; default: expect(msg).toBe(''unknown''); } });'
+  : labels:
+    - source: 'switch (code) { case 200: expect(msg).toBe(''ok''); break; case 404: expect(msg).toBe(''not found''); break; default: expect(msg).toBe(''unknown''); }'
+      style: primary
+      start: 32
+      end: 176
+  ? 'test(''dispatches by type'', () => { switch (type) { case ''a'': expect(result).toBe(1); break; case ''b'': expect(result).toBe(2); break; } });'
+  : labels:
+    - source: 'switch (type) { case ''a'': expect(result).toBe(1); break; case ''b'': expect(result).toBe(2); break; }'
+      style: primary
+      start: 35
+      end: 134

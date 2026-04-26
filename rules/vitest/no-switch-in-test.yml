@@ -1,0 +1,17 @@
+id: no-switch-in-test
+language: tsx
+message: "Split `switch` cases into separate tests instead."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: switch_statement
+note: |
+  Switch statements in tests obscures which case is actually being exercised.
+  Avoid using the `switch` statements in tests to make test cases more identifiable and deterministic.
+
+  Bad:  switch (type) { case "a": ... case "b": ... }
+  Good: test("handles type a", ...) / test("handles type b", ...)
