@@ -1,0 +1,14 @@
+id: no-logical-or-in-test
+snapshots:
+  it('result is valid or pending', () => { expect(status === 'valid' || status === 'pending').toBeTruthy(); });:
+    labels:
+    - source: status === 'valid' || status === 'pending'
+      style: primary
+      start: 48
+      end: 90
+  test('accepts string or number', () => { expect(typeof value === 'string' || typeof value === 'number').toBe(true); });:
+    labels:
+    - source: typeof value === 'string' || typeof value === 'number'
+      style: primary
+      start: 48
+      end: 102

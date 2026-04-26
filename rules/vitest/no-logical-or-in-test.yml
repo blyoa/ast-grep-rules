@@ -1,0 +1,19 @@
+id: no-logical-or-in-test
+language: tsx
+message: "Split logical OR into separate assertions to ensure each condition is verified independently."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: binary_expression
+  regex: "\\|\\|"
+note: |
+  When `expect(a || b).toBe(true)` passes, only one condition needed to be true.
+  Separate tests guarantee each behavior is independently verified.
+
+  Bad:  expect(status === 'active' || status === 'pending').toBe(true)
+  Good: test("when status is active", () => { expect(status).toBe('active') })
+        test("when status is pending", () => { expect(status).toBe('pending') })

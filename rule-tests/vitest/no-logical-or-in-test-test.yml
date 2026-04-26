@@ -1,0 +1,8 @@
+id: no-logical-or-in-test
+valid:
+  - "test('accepts string input', () => { expect(typeof input === 'string').toBe(true); });"
+  - "it('returns number for numeric id', () => { expect(typeof id === 'number').toBeTruthy(); });"
+  - "describe('parser', () => { test('handles json', () => { expect(format).toBe('json'); }); });"
+invalid:
+  - "test('accepts string or number', () => { expect(typeof value === 'string' || typeof value === 'number').toBe(true); });"
+  - "it('result is valid or pending', () => { expect(status === 'valid' || status === 'pending').toBeTruthy(); });"
