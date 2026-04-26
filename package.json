@@ -1,0 +1,16 @@
+{
+  "name": "ast-grep-rules",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "ast-grep test",
+    "test:update": "ast-grep test --update-all",
+    "test:interactive": "ast-grep test --interactive"
+  },
+  "devDependencies": {
+    "@ast-grep/cli": "^0.42.1"
+  },
+  "trustedDependencies": [
+    "@ast-grep/cli"
+  ]
+}
