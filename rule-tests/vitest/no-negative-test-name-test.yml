@@ -1,0 +1,19 @@
+id: no-negative-test-name
+valid:
+  - |
+    test("handles valid input without errors", () => {
+      expect(validate(input)).toBe(true);
+    });
+  - |
+    test("result is not undefined", () => {
+      expect(result).not.toBeUndefined();
+    });
+invalid:
+  - |
+    test("does not throw when input is valid", () => {
+      expect(() => validate(input)).not.toThrow();
+    });
+  - |
+    test("won't accept empty strings", () => {
+      expect(() => parse("")).toThrow();
+    });

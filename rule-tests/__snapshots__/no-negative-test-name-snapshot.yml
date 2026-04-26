@@ -1,0 +1,34 @@
+id: no-negative-test-name
+snapshots:
+  ? |
+    test("does not throw when input is valid", () => {
+      expect(() => validate(input)).not.toThrow();
+    });
+  : labels:
+    - source: |-
+        test("does not throw when input is valid", () => {
+          expect(() => validate(input)).not.toThrow();
+        })
+      style: primary
+      start: 0
+      end: 100
+    - source: does not throw when input is valid
+      style: secondary
+      start: 6
+      end: 40
+  ? |
+    test("won't accept empty strings", () => {
+      expect(() => parse("")).toThrow();
+    });
+  : labels:
+    - source: |-
+        test("won't accept empty strings", () => {
+          expect(() => parse("")).toThrow();
+        })
+      style: primary
+      start: 0
+      end: 82
+    - source: won't accept empty strings
+      style: secondary
+      start: 6
+      end: 32

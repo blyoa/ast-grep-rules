@@ -1,0 +1,23 @@
+id: no-negative-test-name
+language: tsx
+message: "Use positive phrasing in test names to describe expected behavior directly."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  any:
+    - pattern: test($$$)
+    - pattern: it($$$)
+  has:
+    kind: string_fragment
+    regex: ^(does not|doesn't|will not|won't|cannot|can't|never)\s
+    stopBy: end
+note: |
+  Negative phrasing describes what the code avoids doing rather than what it actually does.
+  Positive assertions make the expected outcome unambiguous.
+
+  Bad:  test("does not throw when input is valid", ...)
+  Good: test("returns success result for valid input", ...)
