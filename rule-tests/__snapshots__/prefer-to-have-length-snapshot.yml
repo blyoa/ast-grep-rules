@@ -1,0 +1,9 @@
+id: prefer-to-have-length
+snapshots:
+  test('has correct size', () => { expect(items.length).toBe(3); });:
+    fixed: test('has correct size', () => { expect(items).toHaveLength(3); });
+    labels:
+    - source: expect(items.length).toBe(3)
+      style: primary
+      start: 33
+      end: 61

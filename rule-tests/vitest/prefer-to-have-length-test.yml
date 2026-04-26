@@ -1,0 +1,6 @@
+id: prefer-to-have-length
+valid:
+  - "test('has correct size', () => { expect(items).toHaveLength(3); });"
+invalid:
+  - "test('has correct size', () => { expect(items.length).toBe(3); });"
+

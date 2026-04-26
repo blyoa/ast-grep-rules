@@ -1,0 +1,20 @@
+id: prefer-to-have-length
+language: tsx
+message: "Use `toHaveLength()` instead of asserting on the `.length` property."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  any:
+    - pattern: expect($ARR.length).toBe($N)
+    - pattern: expect($ARR.length).toEqual($N)
+    - pattern: expect($ARR.length).toStrictEqual($N)
+fix: expect($ARR).toHaveLength($N)
+note: |
+  `toHaveLength` provides intent clearly and produces better failure messages that include the actual length.
+
+  Bad:  expect(items.length).toBe(3)
+  Good: expect(items).toHaveLength(3)
