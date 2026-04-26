@@ -1,0 +1,17 @@
+id: no-bare-assert
+language: tsx
+message: "Use a specific assertion method instead of bare `assert()`."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  pattern: assert($EXPR)
+note: |
+  bare `assert()` produces a generic "AssertionError" message.
+  A specific method like `assert.isDefined()` tells you exactly what went wrong.
+
+  Bad:  assert(result);
+  Good: assert.isDefined(result);

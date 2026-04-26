@@ -1,0 +1,10 @@
+id: no-bare-assert
+valid:
+  - "assert.isDefined(result);"
+  - "assert.strictEqual(a, b);"
+  - "assert.deepStrictEqual(obj, expected);"
+  - "assert.isFalse(flag);"
+invalid:
+  - "assert(result);"
+  - "assert(isReady);"
+  - "assert(count > 0);"

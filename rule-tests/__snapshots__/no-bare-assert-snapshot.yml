@@ -1,0 +1,20 @@
+id: no-bare-assert
+snapshots:
+  assert(count > 0);:
+    labels:
+    - source: assert(count > 0)
+      style: primary
+      start: 0
+      end: 17
+  assert(isReady);:
+    labels:
+    - source: assert(isReady)
+      style: primary
+      start: 0
+      end: 15
+  assert(result);:
+    labels:
+    - source: assert(result)
+      style: primary
+      start: 0
+      end: 14
