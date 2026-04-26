@@ -1,0 +1,9 @@
+id: no-if-else-in-test
+valid:
+  - "test('adds two numbers', () => { expect(add(1, 2)).toBe(3); });"
+  - "it('returns empty array for zero length', () => { expect(slice([], 0)).toEqual([]); });"
+  - "describe('calculator', () => { test('multiplies', () => { expect(mul(3, 4)).toBe(12); }); });"
+  - "test.each([[1,2,3]])('adds %i + %i', (a, b, expected) => { expect(add(a, b)).toBe(expected); });"
+invalid:
+  - "test('result depends on input', () => { if (mode === 'a') { expect(result).toBe(1); } else { expect(result).toBe(2); } });"
+  - "it('returns different values', () => { if (flag) { expect(fn()).toBeTruthy(); } else { expect(fn()).toBeFalsy(); } });"

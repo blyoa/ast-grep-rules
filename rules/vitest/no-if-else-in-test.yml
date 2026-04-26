@@ -1,0 +1,17 @@
+id: no-if-else-in-test
+language: tsx
+message: "Split `if/else` branches into separate tests instead."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: if_statement
+note: |
+  If/else branches in tests obscure which path is actually being exercised.
+  Avoid using `if/else` statements in tests to make test cases more identifiable and deterministic.
+
+  Bad:  if (condition) { expect(a) } else { expect(b) }
+  Good: test("when condition is true", ...) / test("when condition is false", ...)

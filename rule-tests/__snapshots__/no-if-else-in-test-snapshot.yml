@@ -1,0 +1,14 @@
+id: no-if-else-in-test
+snapshots:
+  it('returns different values', () => { if (flag) { expect(fn()).toBeTruthy(); } else { expect(fn()).toBeFalsy(); } });:
+    labels:
+    - source: if (flag) { expect(fn()).toBeTruthy(); } else { expect(fn()).toBeFalsy(); }
+      style: primary
+      start: 39
+      end: 114
+  test('result depends on input', () => { if (mode === 'a') { expect(result).toBe(1); } else { expect(result).toBe(2); } });:
+    labels:
+    - source: if (mode === 'a') { expect(result).toBe(1); } else { expect(result).toBe(2); }
+      style: primary
+      start: 40
+      end: 118
