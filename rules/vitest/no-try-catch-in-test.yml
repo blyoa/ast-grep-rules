@@ -1,0 +1,17 @@
+id: no-try-catch-in-test
+language: tsx
+message: "Use `vitest` rejection assertions instead of `try/catch` for error testing."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: try_statement
+note: |
+  Wrapping test code in try/catch obscures which line actually failed.
+  Avoid using try/catch in tests to make failed lines identifiable.
+
+  Bad:  try { await fn(); fail("should have thrown"); } catch (e) { expect(e).toBeInstanceOf(Error); }
+  Good: await expect(fn()).rejects.toThrow();

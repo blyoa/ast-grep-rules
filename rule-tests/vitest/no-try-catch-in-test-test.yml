@@ -1,0 +1,8 @@
+id: no-try-catch-in-test
+valid:
+  - "test('rejects with error', async () => { await expect(fetchData()).rejects.toThrow(); });"
+  - "it('handles invalid input', async () => { await expect(validator(input)).rejects.toThrow('invalid'); });"
+  - "describe('service', () => { test('throws on missing config', async () => { await expect(create()).rejects.toThrow(); }); });"
+invalid:
+  - "test('catches error', async () => { try { await fetchData(); } catch (e) { expect(e).toBeInstanceOf(Error); } });"
+  - "it('handles failure', async () => { try { await validator(input); fail('expected error'); } catch (err) { expect(err.message).toContain('invalid'); } });"

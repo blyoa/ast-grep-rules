@@ -1,0 +1,14 @@
+id: no-try-catch-in-test
+snapshots:
+  ? it('handles failure', async () => { try { await validator(input); fail('expected error'); } catch (err) { expect(err.message).toContain('invalid'); } });
+  : labels:
+    - source: try { await validator(input); fail('expected error'); } catch (err) { expect(err.message).toContain('invalid'); }
+      style: primary
+      start: 36
+      end: 149
+  test('catches error', async () => { try { await fetchData(); } catch (e) { expect(e).toBeInstanceOf(Error); } });:
+    labels:
+    - source: try { await fetchData(); } catch (e) { expect(e).toBeInstanceOf(Error); }
+      style: primary
+      start: 36
+      end: 109
