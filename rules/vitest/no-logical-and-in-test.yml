@@ -1,0 +1,19 @@
+id: no-logical-and-in-test
+language: tsx
+message: "Split logical AND into separate assertions to ensure each condition is verified independently."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: binary_expression
+  regex: "&&"
+note: |
+  When `expect(a && b).toBe(true)` fails, the error does not indicate which condition was false.
+  Separate assertions identify the exact cause of failure.
+
+  Bad:  expect(response.ok && response.data !== null).toBe(true)
+  Good: expect(response.ok).toBe(true)
+        expect(response.data).not.toBeNull()

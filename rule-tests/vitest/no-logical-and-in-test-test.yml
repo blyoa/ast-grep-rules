@@ -1,0 +1,8 @@
+id: no-logical-and-in-test
+valid:
+  - "test('validates name', () => { expect(user.name).toBe('Alice'); });"
+  - "it('checks age is positive', () => { expect(user.age).toBeGreaterThan(0); });"
+  - "describe('form', () => { test('email format', () => { expect(email).toMatch(/@/); }); });"
+invalid:
+  - "test('user is valid and active', () => { expect(user.isValid && user.isActive).toBe(true); });"
+  - "it('result has correct shape', () => { expect(result.ok && typeof result.data === 'object').toBeTruthy(); });"

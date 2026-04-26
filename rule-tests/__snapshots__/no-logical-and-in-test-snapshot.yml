@@ -1,0 +1,14 @@
+id: no-logical-and-in-test
+snapshots:
+  it('result has correct shape', () => { expect(result.ok && typeof result.data === 'object').toBeTruthy(); });:
+    labels:
+    - source: result.ok && typeof result.data === 'object'
+      style: primary
+      start: 46
+      end: 90
+  test('user is valid and active', () => { expect(user.isValid && user.isActive).toBe(true); });:
+    labels:
+    - source: user.isValid && user.isActive
+      style: primary
+      start: 48
+      end: 77
