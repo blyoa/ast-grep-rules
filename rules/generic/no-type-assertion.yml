@@ -1,0 +1,15 @@
+id: no-type-assertion
+language: tsx
+message: "Avoid type assertions; narrow the type at the source instead."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: "$_ as $_"
+note: |
+  `as T` silences type errors without checking the value at runtime.
+  Use a type guard (`typeof`, `instanceof`, `Array.isArray()`) to verify instead.
+
+  Bad:  const name = formData.get("name") as string;
+  Good: const name = typeof formData.get("name") === "string" ? formData.get("name") : "";

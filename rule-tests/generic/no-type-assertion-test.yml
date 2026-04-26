@@ -1,0 +1,8 @@
+id: no-type-assertion
+valid:
+  - "const name = formData.get(\"name\");"
+  - 'const config = { theme: "dark" } as const;'
+  - 'const config: Theme = { theme: "dark" } satisfies Theme;'
+invalid:
+  - 'const name = formData.get("name") as string;'
+  - "const data = response.data as unknown as User;"

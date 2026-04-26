@@ -1,0 +1,14 @@
+id: no-type-assertion
+snapshots:
+  const data = response.data as unknown as User;:
+    labels:
+    - source: response.data as unknown as User
+      style: primary
+      start: 13
+      end: 45
+  const name = formData.get("name") as string;:
+    labels:
+    - source: formData.get("name") as string
+      style: primary
+      start: 13
+      end: 43
