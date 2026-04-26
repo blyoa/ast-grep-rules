@@ -1,0 +1,21 @@
+id: no-type-assertion-except-unknown
+language: tsx
+message: "Avoid type assertions; narrow the type at the source instead."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  all:
+    - pattern: "$_ as $_"
+    - not:
+        any:
+          - regex: "as unknown as "
+          - regex: "as unknown$"
+note: |
+  `as T` silences type errors without checking the value at runtime.
+  `as unknown as T` is allowed because the intermediate `unknown` is
+  an explicit acknowledgment that the assertion has no type-checker support.
+
+  Bad:  const name = formData.get("name") as string;
+  Good: const name = typeof formData.get("name") === "string" ? formData.get("name") : "";

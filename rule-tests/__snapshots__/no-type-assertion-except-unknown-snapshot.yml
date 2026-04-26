@@ -1,0 +1,8 @@
+id: no-type-assertion-except-unknown
+snapshots:
+  const name = formData.get("name") as string;:
+    labels:
+    - source: formData.get("name") as string
+      style: primary
+      start: 13
+      end: 43
