@@ -1,0 +1,23 @@
+id: no-should-in-test-name
+language: tsx
+message: "Describe the expected behavior directly instead of prefixing test names with `should`."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  any:
+    - pattern: test($$$)
+    - pattern: it($$$)
+  has:
+    kind: string_fragment
+    regex: ^[Ss]hould\s
+    stopBy: end
+note: |
+  Prefixing every test name with "should" adds little additional meaning.
+  Describing the behavior directly makes tests more concise.
+
+  Bad:  test("should return the sum of two numbers", ...)
+  Good: test("returns the sum of two numbers", ...)

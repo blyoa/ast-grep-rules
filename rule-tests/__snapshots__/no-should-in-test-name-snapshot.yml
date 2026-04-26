@@ -1,0 +1,34 @@
+id: no-should-in-test-name
+snapshots:
+  ? |
+    test("Should throw an error when input is invalid", () => {
+      expect(() => validate(null)).toThrow();
+    });
+  : labels:
+    - source: |-
+        test("Should throw an error when input is invalid", () => {
+          expect(() => validate(null)).toThrow();
+        })
+      style: primary
+      start: 0
+      end: 104
+    - source: Should throw an error when input is invalid
+      style: secondary
+      start: 6
+      end: 49
+  ? |
+    test("should return the sum of two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
+  : labels:
+    - source: |-
+        test("should return the sum of two numbers", () => {
+          expect(add(1, 2)).toBe(3);
+        })
+      style: primary
+      start: 0
+      end: 84
+    - source: should return the sum of two numbers
+      style: secondary
+      start: 6
+      end: 42

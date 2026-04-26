@@ -1,0 +1,15 @@
+id: no-should-in-test-name
+valid:
+  - |
+    test("returns the sum of two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
+invalid:
+  - |
+    test("should return the sum of two numbers", () => {
+      expect(add(1, 2)).toBe(3);
+    });
+  - |
+    test("Should throw an error when input is invalid", () => {
+      expect(() => validate(null)).toThrow();
+    });
