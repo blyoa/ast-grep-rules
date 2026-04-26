@@ -1,0 +1,7 @@
+id: no-underscore-let
+valid:
+  - "test('returns user', () => { const user = await createUser(); expect(user.name).toBe('Alice'); });"
+  - "it('sets up module', () => { await setupModule(); expect(isReady()).toBe(true); });"
+invalid:
+  - "test('creates user', () => { let _user = await createUser(); expect(count()).toBe(1); });"
+  - "it('sends notification', () => { let _response = sendNotification(); expect(sent).toBe(true); });"

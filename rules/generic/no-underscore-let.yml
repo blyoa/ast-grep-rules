@@ -1,0 +1,18 @@
+id: no-underscore-let
+language: tsx
+message: "Remove unused variable assignments entirely instead of prefixing with underscore."
+severity: error
+files:
+  - "**/*.ts"
+  - "**/*.tsx"
+rule:
+  pattern: let $VAR = $EXPR
+constraints:
+  VAR:
+    regex: "^_"
+note: |
+  Prefixing unused variables with an underscore masks dead code.
+  Remove the unused variable entirely for simplicity.
+
+  Bad:  let _result = await setup();
+  Good: await setup();

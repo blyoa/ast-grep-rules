@@ -1,0 +1,14 @@
+id: no-underscore-let
+snapshots:
+  it('sends notification', () => { let _response = sendNotification(); expect(sent).toBe(true); });:
+    labels:
+    - source: let _response = sendNotification();
+      style: primary
+      start: 33
+      end: 68
+  test('creates user', () => { let _user = await createUser(); expect(count()).toBe(1); });:
+    labels:
+    - source: let _user = await createUser();
+      style: primary
+      start: 29
+      end: 60
