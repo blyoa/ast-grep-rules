@@ -1,0 +1,14 @@
+id: no-ternary-operator-in-test
+snapshots:
+  'it(''returns correct label'', () => { expect(format(isActive)).toBe(isActive ? ''Active'' : ''Inactive''); });':
+    labels:
+    - source: 'isActive ? ''Active'' : ''Inactive'''
+      style: primary
+      start: 66
+      end: 98
+  ? 'test(''result depends on mode'', () => { const expected = mode === ''prod'' ? ''https://api.prod.com'' : ''http://localhost:3000''; expect(getUrl()).toBe(expected); });'
+  : labels:
+    - source: 'mode === ''prod'' ? ''https://api.prod.com'' : ''http://localhost:3000'''
+      style: primary
+      start: 56
+      end: 122

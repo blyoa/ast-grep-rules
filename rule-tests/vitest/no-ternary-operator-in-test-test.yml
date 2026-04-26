@@ -1,0 +1,9 @@
+id: no-ternary-operator-in-test
+valid:
+  - "test('returns sum of two numbers', () => { expect(add(1, 2)).toBe(3); });"
+  - "it('handles null input gracefully', () => { expect(safeParse(null)).toBeNull(); });"
+  - "describe('math', () => { test('power', () => { expect(pow(2, 3)).toBe(8); }); });"
+  - "test('returns default for missing key', () => { expect(get({a:1}, 'b', 0)).toBe(0); });"
+invalid:
+  - "test('result depends on mode', () => { const expected = mode === 'prod' ? 'https://api.prod.com' : 'http://localhost:3000'; expect(getUrl()).toBe(expected); });"
+  - "it('returns correct label', () => { expect(format(isActive)).toBe(isActive ? 'Active' : 'Inactive'); });"

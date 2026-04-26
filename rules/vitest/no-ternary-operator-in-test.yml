@@ -1,0 +1,17 @@
+id: no-ternary-operator-in-test
+language: tsx
+message: "Replace ternary operators with separate, explicit tests."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: ternary_expression
+note: |
+  Ternary operators in tests obscure which path is actually being exercised.
+  Avoid using ternary operators in tests to make test cases more identifiable and deterministic.
+
+  Bad:  const value = condition ? expectedA : expectedB;
+  Good: test("returns A when condition is met", ...) / test("returns B otherwise", ...)
