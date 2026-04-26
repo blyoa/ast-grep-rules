@@ -1,0 +1,14 @@
+id: no-nullish-coalescing-in-test
+snapshots:
+  it('returns a label', () => { const label = item.label ?? 'Untitled'; expect(label).toBeDefined(); });:
+    labels:
+    - source: item.label ?? 'Untitled'
+      style: primary
+      start: 44
+      end: 68
+  test('has a timeout value', () => { const timeout = config.timeout ?? 5000; expect(timeout).toBeGreaterThan(0); });:
+    labels:
+    - source: config.timeout ?? 5000
+      style: primary
+      start: 52
+      end: 74

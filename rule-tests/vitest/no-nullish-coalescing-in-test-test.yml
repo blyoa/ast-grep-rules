@@ -1,0 +1,8 @@
+id: no-nullish-coalescing-in-test
+valid:
+  - "test('uses provided timeout', () => { expect(config.timeout).toBe(3000); });"
+  - "it('applies default limit', () => { expect(result.limit).toBe(100); });"
+  - "describe('options', () => { test('sets retries to 3', () => { expect(opts.retries).toBe(3); }); });"
+invalid:
+  - "test('has a timeout value', () => { const timeout = config.timeout ?? 5000; expect(timeout).toBeGreaterThan(0); });"
+  - "it('returns a label', () => { const label = item.label ?? 'Untitled'; expect(label).toBeDefined(); });"

@@ -1,0 +1,17 @@
+id: no-nullish-coalescing-in-test
+language: tsx
+message: "Use explicit values instead of nullish coalescing to make the tested value unambiguous."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  pattern: "$A ?? $B"
+note: |
+  Nullish coalescing selects between two values at runtime, making it unclear which value is actually being tested.
+  Avoid using nullish coalescing in tests to make test cases more identifiable and deterministic.
+
+  Bad:  const timeout = config.timeout ?? 5000
+  Good: test("uses provided timeout", ...) / test("applies default timeout", ...)
