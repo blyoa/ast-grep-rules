@@ -1,0 +1,30 @@
+id: no-to-equal
+language: tsx
+message: "Use `toStrictEqual()` instead of `toEqual()` for reliable object and array comparisons."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  any:
+    - pattern: expect($X).toEqual($$$ARGS)
+    - pattern: expect($X).$PROP.toEqual($$$ARGS)
+constraints:
+  PROP:
+    regex: "^(not|resolves|rejects)$"
+transform:
+  PROP_CHAIN:
+    replace:
+      source: $PROP
+      replace: "^.+$"
+      by: ".$0"
+fix: expect($X)$PROP_CHAIN.toStrictEqual($$$ARGS)
+note: |
+  `toEqual` treats `undefined` and missing properties as equivalent, which can let shape mismatches slip through unnoticed.
+
+  Bad:  expect(result).toEqual({ name: "Alice" })
+  Bad:  expect(result).not.toEqual({ name: "Alice" })
+  Good: expect(result).toStrictEqual({ name: "Alice" })
+  Good: expect(result).not.toStrictEqual({ name: "Alice" })

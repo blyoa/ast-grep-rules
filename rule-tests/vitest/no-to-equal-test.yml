@@ -1,0 +1,14 @@
+id: no-to-equal
+valid:
+  - "test('compares objects strictly', () => { expect(result).toStrictEqual({ name: 'Alice', age: 30 }); });"
+  - "test('checks array contents', () => { expect(items).toStrictEqual([1, 2, 3]); });"
+  - "test('negated strict comparison', () => { expect(output).not.toStrictEqual(expected); });"
+invalid:
+  - |
+      expect(result).toEqual({ name: "Alice" });
+  - |
+      expect(result).not.toEqual({ name: "Alice" });
+  - |
+      expect(promise).resolves.toEqual({ status: "ok" });
+  - |
+      expect(promise).rejects.toEqual(new Error("fail"));

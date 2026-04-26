@@ -1,0 +1,38 @@
+id: no-to-equal
+snapshots:
+  ? |
+    expect(promise).rejects.toEqual(new Error("fail"));
+  : fixed: |
+      expect(promise).rejects.toStrictEqual(new Error("fail"));
+    labels:
+    - source: expect(promise).rejects.toEqual(new Error("fail"))
+      style: primary
+      start: 0
+      end: 50
+  ? |
+    expect(promise).resolves.toEqual({ status: "ok" });
+  : fixed: |
+      expect(promise).resolves.toStrictEqual({ status: "ok" });
+    labels:
+    - source: 'expect(promise).resolves.toEqual({ status: "ok" })'
+      style: primary
+      start: 0
+      end: 50
+  ? |
+    expect(result).not.toEqual({ name: "Alice" });
+  : fixed: |
+      expect(result).not.toStrictEqual({ name: "Alice" });
+    labels:
+    - source: 'expect(result).not.toEqual({ name: "Alice" })'
+      style: primary
+      start: 0
+      end: 45
+  ? |
+    expect(result).toEqual({ name: "Alice" });
+  : fixed: |
+      expect(result).toStrictEqual({ name: "Alice" });
+    labels:
+    - source: 'expect(result).toEqual({ name: "Alice" })'
+      style: primary
+      start: 0
+      end: 41
