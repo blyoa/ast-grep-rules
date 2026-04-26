@@ -1,0 +1,18 @@
+id: prefer-test-tld-for-example-domain
+language: tsx
+message: "Use the .test TLD for test URLs to prevent accidental requests to real servers."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  kind: string
+  regex: "https?://example\\.(com|net|org|edu)"
+note: |
+  RFC 2606 reserves example domains for documentation, but they resolve to real servers.
+  Use the .test TLD instead to prevent accidental requests.
+
+  Bad:  fetch("https://example.com/api/users")
+  Good: fetch("https://example.test/api/users")

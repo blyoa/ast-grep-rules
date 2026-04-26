@@ -1,0 +1,47 @@
+id: prefer-test-tld-for-example-domain
+snapshots:
+  ? |
+    test("fetches from example.edu", () => {
+      expect(fetch("https://example.edu/resource")).toBeDefined();
+    });
+  : labels:
+    - source: '"https://example.edu/resource"'
+      style: primary
+      start: 56
+      end: 86
+  ? |
+    test("fetches from example.net", () => {
+      expect(fetch("http://example.net")).toBeDefined();
+    });
+  : labels:
+    - source: '"http://example.net"'
+      style: primary
+      start: 56
+      end: 76
+  ? |
+    test("fetches from example.org", () => {
+      expect(fetch("https://example.org/api")).toBeDefined();
+    });
+  : labels:
+    - source: '"https://example.org/api"'
+      style: primary
+      start: 56
+      end: 81
+  ? |
+    test("fetches user from API", () => {
+      expect(fetch("https://example.com/api/users")).toBeDefined();
+    });
+  : labels:
+    - source: '"https://example.com/api/users"'
+      style: primary
+      start: 53
+      end: 84
+  ? |
+    test("redirects to home", () => {
+      expect(redirect("http://example.com")).toBe("https://myapp.test/home");
+    });
+  : labels:
+    - source: '"http://example.com"'
+      style: primary
+      start: 52
+      end: 72

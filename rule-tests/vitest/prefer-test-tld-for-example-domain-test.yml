@@ -1,0 +1,31 @@
+id: prefer-test-tld-for-example-domain
+valid:
+  - |
+    test("fetches user from API", () => {
+      expect(fetch("https://myapp.test/api/users")).toBeDefined();
+    });
+  - |
+    test("connects to local server", () => {
+      expect(client.connect("http://localhost:3000")).toBe(true);
+    });
+invalid:
+  - |
+    test("fetches user from API", () => {
+      expect(fetch("https://example.com/api/users")).toBeDefined();
+    });
+  - |
+    test("redirects to home", () => {
+      expect(redirect("http://example.com")).toBe("https://myapp.test/home");
+    });
+  - |
+    test("fetches from example.org", () => {
+      expect(fetch("https://example.org/api")).toBeDefined();
+    });
+  - |
+    test("fetches from example.net", () => {
+      expect(fetch("http://example.net")).toBeDefined();
+    });
+  - |
+    test("fetches from example.edu", () => {
+      expect(fetch("https://example.edu/resource")).toBeDefined();
+    });
