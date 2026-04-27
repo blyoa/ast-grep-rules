@@ -1,0 +1,20 @@
+id: no-transform-in-expect
+snapshots:
+  test('filters active users', () => { expect(users.filter(u => u.active)).toStrictEqual(activeUsers); });:
+    labels:
+    - source: expect(users.filter(u => u.active)).toStrictEqual(activeUsers)
+      style: primary
+      start: 37
+      end: 99
+  test('maps to names', () => { expect(users.map(u => u.name)).toEqual(['Alice', 'Bob']); });:
+    labels:
+    - source: expect(users.map(u => u.name)).toEqual(['Alice', 'Bob'])
+      style: primary
+      start: 30
+      end: 86
+  test('sorts by name', () => { expect(items.sort((a, b) => a.name.localeCompare(b.name))).toEqual(sorted); });:
+    labels:
+    - source: expect(items.sort((a, b) => a.name.localeCompare(b.name))).toEqual(sorted)
+      style: primary
+      start: 30
+      end: 104

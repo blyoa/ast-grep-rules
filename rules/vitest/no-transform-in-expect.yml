@@ -1,0 +1,22 @@
+id: no-transform-in-expect
+language: tsx
+message: "Assert the raw output without transforming it inside `expect()`."
+severity: error
+files:
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+rule:
+  any:
+    - pattern: expect($X.map($$$)).$$$MATCHER($$$)
+    - pattern: expect($X.filter($$$)).$$$MATCHER($$$)
+    - pattern: expect($X.sort($$$)).$$$MATCHER($$$)
+    - pattern: expect($X.flatMap($$$)).$$$MATCHER($$$)
+    - pattern: expect($X.reduce($$$)).$$$MATCHER($$$)
+note: |
+  Transforming data, e.g., inside `expect()`, hides what the code actually returns.
+  Assert the raw output without transforming it.
+
+  Bad:  expect(users.map(u => u.name)).toEqual(["Alice", "Bob"])
+  Good: expect(users).toStrictEqual([{ name: "Alice" }, { name: "Bob" }])

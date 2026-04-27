@@ -1,0 +1,9 @@
+id: no-transform-in-expect
+valid:
+  - "test('returns user list', () => { expect(users).toStrictEqual([{ name: 'Alice' }, { name: 'Bob' }]); });"
+  - "test('filters items via query param', () => { expect(result).toStrictEqual(filteredItems); });"
+  - "test('checks count after filter', () => { const active = items.filter(i => i.active); expect(active.length).toBe(2); });"
+invalid:
+  - "test('maps to names', () => { expect(users.map(u => u.name)).toEqual(['Alice', 'Bob']); });"
+  - "test('filters active users', () => { expect(users.filter(u => u.active)).toStrictEqual(activeUsers); });"
+  - "test('sorts by name', () => { expect(items.sort((a, b) => a.name.localeCompare(b.name))).toEqual(sorted); });"
